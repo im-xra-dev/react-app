@@ -1,8 +1,10 @@
-import * as React from "react";
+import * as React from 'react';
+import Header from "./components/header";
 
 function App() {
   return (
     <div className="App">
+      <Header test={"yes"}></Header>
       <header className="App-header">
         <p>
           ddEdit <code>src/App.js</code> and save to reload fsdfsdfhgh.

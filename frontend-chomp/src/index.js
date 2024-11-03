@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var ReactDOM = require("react-dom/client");
-require("./index.css");
+require("./assets/css/index.css");
 var App_1 = require("./App");
 var reportWebVitals_1 = require("./reportWebVitals");
 var root = ReactDOM.createRoot(document.getElementById('root'));
