@@ -6,14 +6,8 @@
     "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
-  "ignorePatterns": [
-    "**/*.jsx",
-    "**/*.js"
-  ],
-  "plugins": [
-    "react",
-    "@typescript-eslint"
-  ],
+  "ignorePatterns": ["**/*.jsx", "**/*.js"],
+  "plugins": ["react", "@typescript-eslint"],
   "rules": {
     // Custom rules
   }
