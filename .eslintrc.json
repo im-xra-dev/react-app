@@ -1,9 +1,5 @@
 {
-  "parser": "@typescript-eslint/parser",
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended"
-  ],
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
   "ignorePatterns": ["**/*.jsx", "**/*.js"],
   "plugins": ["react"],
   "rules": {
