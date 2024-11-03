@@ -3,7 +3,7 @@
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
-    "prettier"
+    "plugin:prettier/recommended"
   ],
   "ignorePatterns": ["**/*.jsx", "**/*.js"],
   "plugins": ["react"],
