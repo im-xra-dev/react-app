@@ -1,0 +1,159 @@
+#profile-header {
+  width: calc(100% - 10px - 100px);
+  height: min-content;
+  min-height: 300px;
+  margin: 5px;
+  padding: 50px;
+  background-color: #414141;
+  border-radius: 25%;
+  box-shadow: 0px 0px 10px 15px #414141;
+}
+
+.profile-table {
+  display: table;
+}
+
+.profile-row {
+  margin: 10px;
+  display: flex;
+}
+
+#pfp-iframe {
+  position: absolute;
+  width: 675px;
+  height: 300px;
+
+  left: 50%;
+  margin-left: calc(690px / -2);
+  top: 150px;
+
+  outline: none;
+  border: none;
+}
+
+#pfp-close {
+  position: absolute;
+  width: 50px;
+  height: 30px;
+
+  left: 50%;
+  margin-left: -30px;
+  top: 475px;
+
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid black;
+  background-color: rgba(5, 0, 255, 0.23);
+}
+
+#change-pfp {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+
+  left: 0;
+  top: 0;
+
+  background-color: rgba(0, 0, 0, 0.1);
+
+  display: none;
+}
+
+/*for testing*/
+/*div{*/
+/*    border: 1px dashed black;*/
+/*    !*background-color: red;*!*/
+/*}*/
+
+.profile-obj {
+  display: inline-block;
+  /*margin: 5px;*/
+}
+
+#stacked {
+  width: calc(100% - 150px);
+  /*min-width: 300px;*/
+  border-bottom: 1px solid #128424;
+}
+
+#profile-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  background-color: blue;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 125%;
+}
+
+#edit-profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  background-color: rgba(0, 0, 0, 0.25);
+  text-align: center;
+  line-height: 100px;
+  color: #fff;
+}
+
+#edit-profile {
+  outline: none;
+  border: none;
+  width: 90%;
+  margin-left: 5%;
+  background: #3ad469;
+  border-radius: 10px;
+}
+#edit-profile:hover {
+  box-shadow: inset 0px -10px 10px -7px #3fe772;
+}
+
+#profile-username {
+  text-align: left;
+  padding-left: 50px;
+  font-size: 18pt;
+  display: block;
+}
+#profile-stats {
+  text-align: left;
+  padding-left: 50px;
+  font-size: 12pt;
+  display: block;
+}
+
+#profile-bio {
+  text-align: left;
+  font-size: 12pt;
+  display: block;
+  width: calc(100% - 150px);
+  text-wrap: normal;
+  word-break: break-word;
+  padding: 15px;
+}
+
+#profile-badges {
+  text-align: center;
+  font-size: 12pt;
+  display: block;
+  width: 150px;
+  border: 1px solid grey;
+  border-radius: 10px;
+}
+
+#users-posts {
+  box-shadow: inset 0 0 10px -7px #000000;
+  background: #00000012;
+  width: calc(100% - 20px);
+  height: 100%;
+  min-height: 250px;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 25px;
+}
+
+#users-posts-header {
+  text-align: center;
+  font-size: 14pt;
+  border-bottom: 1px dashed black;
+  margin-bottom: 25px;
+}

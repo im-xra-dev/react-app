@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react';
-import App from './App';
 import * as React from 'react';
+import App from '../../App';
 
-test('page', () => {
+test('Header component initialised', () => {
   render(<App />);
-  const linkElement = screen.getByText(/TODO/i);
+  const linkElement = screen.getByTestId('header-home');
   expect(linkElement).toBeInTheDocument();
 });
