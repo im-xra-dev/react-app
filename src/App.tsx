@@ -20,7 +20,7 @@ function App() {
             <Route path="s/:id/" element={<PostList id="s" />} />
             <Route path="profile/">
               <Route index element={<ProfilePage user="TODO-me" />} />
-              <Route path=":uid/" element={<ProfilePage user="TODO" />} />
+              <Route path=":uid/" element={<ProfilePage user="TODO-url" />} />
             </Route>
             <Route path="post/:postid/" element={<ViewPost />} />
           </Route>

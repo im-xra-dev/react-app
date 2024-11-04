@@ -1,7 +1,7 @@
 html body {
   width: calc(100% - 10px);
   height: 100%;
-  background: #262626;
+  background: #00000C;
   color: #bdbdbd;
   font-family: Cambria;
   overflow-x: hidden;
@@ -39,7 +39,7 @@ a:hover {
 }
 
 .main-content {
-  background: #131313;
+  background: #000001;
   width: 80%;
   max-width: 1024px;
   position: absolute;
@@ -91,8 +91,8 @@ a:hover {
 }
 
 .logo {
-  background: #5c353c;
-  /*url("/src/img/logo.png");*/
+  /*background: #5c353c;*/
+  background-image: url("../../../public/logo192.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
