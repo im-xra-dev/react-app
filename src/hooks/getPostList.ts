@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
-import { Post } from "../types/post";
+import { useEffect, useState } from 'react';
+import { PostList } from "../components/PostList/types";
 
-export type PostList = [Post?]
 
 export function ForumPostList(feed: PostList = []): PostList {
   const [posts, setPosts]: [PostList, any] = useState(feed);
@@ -9,7 +8,7 @@ export function ForumPostList(feed: PostList = []): PostList {
   console.log(1);
 
   setTimeout(() => {
-    const out = [...feed, ...[{ id: "testid", title: "title" }]];
+    const out = [...feed, ...[{ id: 'testid', title: 'title' }]];
     setPosts(out);
   }, 1000);
 
