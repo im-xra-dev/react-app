@@ -16,8 +16,8 @@
   },
   "scripts": {
     "start": "tsc & react-scripts start",
-    "format": "npx prettier -w *",
-    "check": "npx prettier -c *",
+    "format": "npx prettier -w .",
+    "check": "npx prettier -c .",
     "build": "react-scripts build",
     "test": "react-scripts test --watchAll=false",
     "test-": "react-scripts test",

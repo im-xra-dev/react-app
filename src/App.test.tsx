@@ -4,6 +4,6 @@ import * as React from 'react';
 
 test('page', () => {
   render(<App />);
-  const linkElement = screen.getByText(/HEADER/i);
+  const linkElement = screen.getByText(/TODO/i);
   expect(linkElement).toBeInTheDocument();
 });

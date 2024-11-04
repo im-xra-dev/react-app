@@ -1,2 +1,2 @@
-import { ViewPost } from './page';
+import { ViewPost } from './ViewPost';
 export default ViewPost;

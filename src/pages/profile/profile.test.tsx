@@ -6,3 +6,9 @@ test('not written', () => {
   // const linkElement = screen.getByText(/learn react/i);
   // expect(linkElement).toBeInTheDocument();
 });
+
+/**TODO: setup API calls
+ * Test data displayed in page
+ * refactor out header and also check header values
+ * check post list
+ */
