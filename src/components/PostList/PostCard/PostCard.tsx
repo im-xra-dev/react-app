@@ -6,7 +6,6 @@ import { useContext } from 'react';
 
 export function PostCard({ index }: { index: number }) {
   const value = useContext(TimelineContextState);
-  console.log({ index, value });
   const SinglePost = value.timelineStateData.data[index];
 
   return (

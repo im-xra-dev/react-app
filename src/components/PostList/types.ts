@@ -6,7 +6,7 @@ export type TimelineState = {
   recipeDataResolved: any;
 };
 
-export type PostDataList = [PostData?];
+export type PostDataList = PostData[];
 
 export type PostData = {
   comments: number;
