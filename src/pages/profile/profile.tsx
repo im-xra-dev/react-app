@@ -1,7 +1,7 @@
-import * as React from "react";
-import "./profile.css";
-import { useParams } from "react-router-dom";
-import PostList from "../../components/PostList";
+import * as React from 'react';
+import './profile.css';
+import { useParams } from 'react-router-dom';
+import PostList from '../../components/PostList';
 import '../../assets/css/ContentHeader.css';
 
 export function ProfilePage() {
@@ -12,11 +12,21 @@ export function ProfilePage() {
 
   //setState user obj
 
-  {/*TODO follow <form action="/API/follow_user" method="post">*/}
-  {/*  <input style="display:none" id="userID" className="textInput" name="userID" value="12345678"/>*/}
-  {/*  <button id="submit" type="submit">follow</button>*/}
-  {/*</form>*/}
-  {/*TODO edit <button style="display: none" id="edit-profile" onClick="editProfile()">Edit Profile</button>*/}
+  {
+    /*TODO follow <form action="/API/follow_user" method="post">*/
+  }
+  {
+    /*  <input style="display:none" id="userID" className="textInput" name="userID" value="12345678"/>*/
+  }
+  {
+    /*  <button id="submit" type="submit">follow</button>*/
+  }
+  {
+    /*</form>*/
+  }
+  {
+    /*TODO edit <button style="display: none" id="edit-profile" onClick="editProfile()">Edit Profile</button>*/
+  }
 
   return (
     <>
@@ -34,7 +44,7 @@ export function ProfilePage() {
       <div id="users-posts">
         <div id="users-posts-header">{`${uname}s posts`}</div>
         <div id="users-posts-container">
-          <PostList id="profile" options={{ id: uid }}/>
+          <PostList id="profile" options={{ id: uid }} />
         </div>
       </div>
       {/*TODO link <div id="new-post" onClick="window.location.href='/post';">New PostData</div>*/}
@@ -45,29 +55,32 @@ export function ProfilePage() {
 //Utilities
 //TODO: implement user data and implement profile pic
 function ProfilePic() {
-  return <div id="profile-image" className="content-obj">
-    //TODO load
-  </div>;
-
+  return (
+    <div id="profile-image" className="content-obj">
+      //TODO load
+    </div>
+  );
 }
 
 //TODO: implement user data and implement profile pic
 function ProfileInfo() {
-  return <div className="content-obj stacked" id="stacked">
-    <div id="profile-username" className="content-row">
-      USERNAME
+  return (
+    <div className="content-obj stacked" id="stacked">
+      <div id="profile-username" className="content-row">
+        USERNAME
+      </div>
+      <div id="profile-stats" className="content-row">
+        posts: - rep: -
+      </div>
     </div>
-    <div id="profile-stats" className="content-row">
-      posts: - rep: -
-    </div>
-  </div>;
-
+  );
 }
 
 //TODO: implement user data and implement profile pic
 function Bio() {
-  return <div id="profile-bio" className="content-obj">
-    //TODO load
-  </div>;
-
+  return (
+    <div id="profile-bio" className="content-obj">
+      //TODO load
+    </div>
+  );
 }

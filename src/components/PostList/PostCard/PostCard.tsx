@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { PostData } from '../types';
 import { Link } from 'react-router-dom';
-import { TimelineContextState } from "../PostList";
-import { useContext } from "react";
+import { TimelineContextState } from '../PostList';
+import { useContext } from 'react';
 
 export function PostCard({ index }: { index: number }) {
-  const value = useContext(TimelineContextState)
-  console.log({index, value})
+  const value = useContext(TimelineContextState);
+  console.log({ index, value });
   const SinglePost = value.timelineStateData.data[index];
 
   return (

@@ -23,23 +23,23 @@ export type PostData = {
   value?: number;
 };
 
-export type PostListViews = "home" | "search" | "profile" | "s";
+export type PostListViews = 'home' | 'search' | 'profile' | 's';
 
-export type PostListProps = { id?: string }
+export type PostListProps = { id?: string };
 
 export type tlineObj = {
-  iter: number,
-  users: { [key: string]: tlineStructure },
-  secs: { [key: string]: tlineStructure },
-  prio_usr: [],
-  reco_usr: [],
-  prio_sec: [],
-  reco_sec: [],
-  promo: [],
-}
+  iter: number;
+  users: { [key: string]: tlineStructure };
+  secs: { [key: string]: tlineStructure };
+  prio_usr: [];
+  reco_usr: [];
+  prio_sec: [];
+  reco_sec: [];
+  promo: [];
+};
 
 export type tlineStructure = {
-  date?: Date|number,
-  actv?: number,
-  _?: number,
-}
+  date?: Date | number;
+  actv?: number;
+  _?: number;
+};

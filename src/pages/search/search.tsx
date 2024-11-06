@@ -1,7 +1,7 @@
-import * as React from "react";
+import * as React from 'react';
 // import "./profile.css";
-import { useParams } from "react-router-dom";
-import PostList from "../../components/PostList";
+import { useParams } from 'react-router-dom';
+import PostList from '../../components/PostList';
 import '../../assets/css/ContentHeader.css';
 
 export function SearchPage() {
@@ -16,7 +16,7 @@ export function SearchPage() {
       <div id="s-posts">
         <div id="users-posts-header">{`Search page not setup`}</div>
         <div id="s-posts-container">
-          <PostList id="search" options={{ id: "TODO" }}/>
+          <PostList id="search" options={{ id: 'TODO' }} />
         </div>
       </div>
     </>
