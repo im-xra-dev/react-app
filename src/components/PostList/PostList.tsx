@@ -1,87 +1,64 @@
 import * as React from "react";
 import "./PostList.css";
-import { ForumPostList } from "../../hooks/getPostList";
-import { useEffect, useState } from "react";
-import { Simulate } from "react-dom/test-utils";
-import load = Simulate.load;
+import { useEffect, useState, createContext, SetStateAction, Dispatch } from "react";
 import { PostCard } from "./PostCard/PostCard";
-import { PostDataType, PostList } from "./types";
+import { PostDataList, PostListViews, PostListProps, TimelineState } from "./types";
+import { newTimelineState, queryTimelineObject } from "../../hooks/TimelineHook/interface";
 
-export function PostList({
-                           id
-                         }: {
-  id: "home" | "search" | "profile" | "s"; //ID of post view
-}) {
-  // const posts = ForumPostList();
-  // const posts = []
-  const [posts, setPosts]: [PostDataType, any] = useState({
-    error: false,
-    responseCode: -1,
-    data: [],
-    object: "",
-    recipeDataResolved: ""
-  });
-  // const [loadMore, setLoadMore]: [boolean, any] = useState(true);
+//exports
+export const TimelineContextState = createContext(null);
+export type Props = { id: PostListViews, options?: PostListProps, };
 
-  //doEffectStuff
+export function PostList(props: Props) {
+  //initialize contexts
+  const [message, setMessage] = useState("loading...");
+  const [timelineStateData, setTimelineStateData]: [TimelineState, Dispatch<SetStateAction<TimelineState>>]
+    = useState(newTimelineState(props.id, props.options));
 
+  //create a scoped scroll handler
+  const scopedScrollHandler = () => {
+    //    calculates the distance left to scroll in px
+    const E = document.documentElement;
+    const winScroll = document.body.scrollTop || E.scrollTop;
+    const height = E.scrollHeight - E.clientHeight;
+    const dist = height - winScroll;
+
+    console.log({dist, message})
+    if (dist < 500 && !message) {
+      //load next chunk
+      setMessage("loading more posts...");
+      queryTimelineObject(timelineStateData, setTimelineStateData, setMessage);
+    }
+  };
+
+  //On first load
   useEffect(() => {
-    //i need to load posts initially
-    // POST request using fetch inside useEffect React hook
-    const requestOptions = {
-      method: "POST",
-      // headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ timeline: true, xml: false })
+    //query the timeline object for the first block of posts
+    queryTimelineObject(timelineStateData, setTimelineStateData, setMessage);
+  }, []);
+
+  //When message changes update scope
+  useEffect(() => {
+    //then lazy load future posts as the user scrolls
+    window.addEventListener("scroll", scopedScrollHandler, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", scopedScrollHandler);
     };
-    fetch("http://localhost:8081/API/get-posts", requestOptions)
-      .then((response) => response.json())
-      .then(setPosts);
-    }, []);
+  }, [message]);
 
-  // console.log(`iter${iter}`);
-  // const loadMore = false;
-
-  // useEffect(() => {
-  // }, [iter]);
-  console.log(posts);
-
+  //timeline context with message at the bottom
   return (
-    <div data-testid="post-list" className="post-tline">
-      {posts.data.length === 0 ? "Loading..." : <GenerateFeed posts={posts.data}/>}
-    </div>
+    <TimelineContextState.Provider value={{ timelineStateData, setTimelineStateData }}>
+      <div><p>{message}</p></div>
+      <div data-testid="post-list" className="post-tline">
+        <GenerateFeed posts={timelineStateData.data}/>
+      </div>
+    </TimelineContextState.Provider>
   );
 }
 
-function GenerateFeed({posts} : {posts:PostList}) {
+function GenerateFeed({ posts }: { posts: PostDataList }) {
   const out = [];
-  for(let i = 0; i < posts.length; i++)
-    out.push(<PostCard data={posts[i]}/>);
-  return <>{out}</>
-}
-
-function doEffectStuff() {
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const E = document.documentElement;
-  //     const winScroll = document.body.scrollTop || E.scrollTop;
-  //     const height = E.scrollHeight - E.clientHeight;
-  //     const dist = height - winScroll;
-  //
-  //     console.log({ dist, loadMore });
-  //     if (dist < 500 && loadMore) {
-  //       setLoadMore(false);
-  //       console.log(1.2);
-  //       setTimeout(() => {
-  //         const out = [...posts, ...[{ id: "testid", title: "title" }]];
-  //         setLoadMore(true);
-  //         setPosts(out);
-  //       }, 1000);
-  //     }
-  //   };
-  //
-  //   window.addEventListener("scroll", handleScroll, { passive: true });
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, []);
+  for (let i = 0; i < posts.length; i++) out.push(<PostCard index={i}/>);
+  return <>{out}</>;
 }

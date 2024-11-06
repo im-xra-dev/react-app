@@ -1,48 +1,73 @@
-import * as React from 'react';
-import { PostList } from '../../components/PostList/PostList';
-import './profile.css';
+import * as React from "react";
+import "./profile.css";
+import { useParams } from "react-router-dom";
+import PostList from "../../components/PostList";
+import '../../assets/css/ContentHeader.css';
 
-export function ProfilePage({ user }: { user: string }) {
+export function ProfilePage() {
+  //TODO when auth then params || auth
+  const uid: string = useParams().uname;
+  const uname: string = useParams().uname;
+  if (!uid) return <p>TODO: handle error</p>;
+
+  //setState user obj
+
+  {/*TODO follow <form action="/API/follow_user" method="post">*/}
+  {/*  <input style="display:none" id="userID" className="textInput" name="userID" value="12345678"/>*/}
+  {/*  <button id="submit" type="submit">follow</button>*/}
+  {/*</form>*/}
+  {/*TODO edit <button style="display: none" id="edit-profile" onClick="editProfile()">Edit Profile</button>*/}
+
   return (
     <>
-      {/*TODO profile table as module; re-use as s categories*/}
-      <div id="profile-header" className="profile-table">
-        <div className="profile-row">
-          <div id="profile-image" className="profile-obj">
-            //TODO load
-          </div>
-          <div className="profile-obj" id="stacked">
-            <div id="profile-username" className="profile-row">
-              USERNAME
-            </div>
-            <div id="profile-stats" className="profile-row">
-              posts: - rep: -
-            </div>
-          </div>
-        </div>
-        <div className="profile-row" id="customisable">
-          <div className="profile-obj" id="profile-bio">
-            TODO load
-          </div>
-          <div className="profile-obj" id="profile-badges">
-            {/*TODO follow <form action="/API/follow_user" method="post">*/}
-            {/*  <input style="display:none" id="userID" className="textInput" name="userID" value="12345678"/>*/}
-            {/*  <button id="submit" type="submit">follow</button>*/}
-            {/*</form>*/}
-            <div>
-              {/*TODO edit <button style="display: none" id="edit-profile" onClick="editProfile()">Edit Profile</button>*/}
-            </div>
-          </div>
-        </div>
-      </div>
+      {/*<div id="profile-header" className="content-table">*/}
+      {/*  <div className="content-row">*/}
+      {/*    <ProfilePage/>*/}
+      {/*    <ProfileInfo/>*/}
+      {/*  </div>*/}
+      {/*  <div className="content-row" id="customisable">*/}
+      {/*    <Bio/>*/}
+      {/*    <div className="content-obj" id="profile-badges"/>*/}
+      {/*  </div>*/}
+      {/*</div>*/}
 
       <div id="users-posts">
-        <div id="users-posts-header">{`${user}s posts`}</div>
+        <div id="users-posts-header">{`${uname}s posts`}</div>
         <div id="users-posts-container">
-          <PostList id="profile" />
+          <PostList id="profile" options={{ id: uid }}/>
         </div>
       </div>
-      {/*TODO link <div id="new-post" onClick="window.location.href='/post';">New Post</div>*/}
+      {/*TODO link <div id="new-post" onClick="window.location.href='/post';">New PostData</div>*/}
     </>
   );
+}
+
+//Utilities
+//TODO: implement user data and implement profile pic
+function ProfilePic() {
+  return <div id="profile-image" className="content-obj">
+    //TODO load
+  </div>;
+
+}
+
+//TODO: implement user data and implement profile pic
+function ProfileInfo() {
+  return <div className="content-obj stacked" id="stacked">
+    <div id="profile-username" className="content-row">
+      USERNAME
+    </div>
+    <div id="profile-stats" className="content-row">
+      posts: - rep: -
+    </div>
+  </div>;
+
+}
+
+//TODO: implement user data and implement profile pic
+function Bio() {
+  return <div id="profile-bio" className="content-obj">
+    //TODO load
+  </div>;
+
 }

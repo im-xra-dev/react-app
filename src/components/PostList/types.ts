@@ -1,18 +1,16 @@
-import { Post } from "../../types/post";
-
-export type PostDataType = {
+export type TimelineState = {
   error: boolean;
   responseCode: number;
-  data: PostList;
+  data: PostDataList;
   object: any;
   recipeDataResolved: any;
 };
 
-export type PostList = [Post?];
+export type PostDataList = [PostData?];
 
-export type Post = {
+export type PostData = {
   comments: number;
-  content: string
+  content: string;
   pinned: number;
   post_id: string;
   post_type: number;
@@ -22,5 +20,26 @@ export type Post = {
   title: string;
   user_id: string;
   username: string;
-  value?: number
+  value?: number;
 };
+
+export type PostListViews = "home" | "search" | "profile" | "s";
+
+export type PostListProps = { id?: string }
+
+export type tlineObj = {
+  iter: number,
+  users: { [key: string]: tlineStructure },
+  secs: { [key: string]: tlineStructure },
+  prio_usr: [],
+  reco_usr: [],
+  prio_sec: [],
+  reco_sec: [],
+  promo: [],
+}
+
+export type tlineStructure = {
+  date?: Date|number,
+  actv?: number,
+  _?: number,
+}
