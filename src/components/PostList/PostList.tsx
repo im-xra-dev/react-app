@@ -2,15 +2,25 @@ import * as React from 'react';
 import './PostList.css';
 import { useEffect, useState, createContext } from 'react';
 import { PostCard } from './PostCard/PostCard';
-import { PostDataList, PostListViews, PostListProps } from './types';
+import {
+  PostDataList,
+  PostListViews,
+  PostListProps,
+  TimelineState,
+} from './types';
 import {
   newTimelineState,
   queryTimelineObject,
 } from '../../hooks/TimelineHook/interface';
+import { useContext } from 'react';
 
 //exports
 export const TimelineContextState = createContext(null);
-export type Props = { id: PostListViews; options?: PostListProps };
+export type Props = {
+  id: PostListViews;
+  options?: PostListProps;
+  mock?: { _: TimelineState };
+};
 
 /** PostList
  *
@@ -38,14 +48,24 @@ export function PostList(props: Props) {
     if (dist < 500 && !message) {
       //load next chunk
       setMessage('loading more posts...');
-      queryTimelineObject(timelineStateData, setTimelineStateData, setMessage);
+      queryTimelineObject(
+        timelineStateData,
+        setTimelineStateData,
+        setMessage,
+        props.mock,
+      );
     }
   };
 
   //On first load
   useEffect(() => {
     //query the timeline object for the first block of posts
-    queryTimelineObject(timelineStateData, setTimelineStateData, setMessage);
+    queryTimelineObject(
+      timelineStateData,
+      setTimelineStateData,
+      setMessage,
+      props.mock,
+    );
   }, []);
 
   //When message changes update scope
@@ -63,17 +83,21 @@ export function PostList(props: Props) {
       value={{ timelineStateData, setTimelineStateData }}
     >
       <div data-testid="post-list" className="post-tline">
-        <GenerateFeed posts={timelineStateData.data} />
+        <GenerateFeed />
       </div>
       <div>
-        <p>{message}</p>
+        <p data-testid="postlist-state">{message}</p>
       </div>
     </TimelineContextState.Provider>
   );
 }
 
-function GenerateFeed({ posts }: { posts: PostDataList }) {
+function GenerateFeed() {
+  const value = useContext(TimelineContextState);
+  const posts = value.timelineStateData.data;
+
   const out = [];
-  for (let i = 0; i < posts.length; i++) out.push(<PostCard index={i} />);
+  for (let i = 0; i < posts.length; i++)
+    out.push(<PostCard key={i} index={i} />);
   return <>{out}</>;
 }

@@ -4,6 +4,6 @@ import App from '../../App';
 
 test('Header component initialised', () => {
   render(<App />);
-  const linkElement = screen.getByTestId('Header-home');
+  const linkElement = screen.getByTestId('header-home');
   expect(linkElement).toBeInTheDocument();
 });

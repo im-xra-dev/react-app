@@ -1,35 +1,35 @@
 import * as React from 'react';
-import { PostData } from '../types';
 import { Link } from 'react-router-dom';
 import { TimelineContextState } from '../PostList';
 import { useContext } from 'react';
+import { IMAGE_HOST } from '../../../config';
 
 export function PostCard({ index }: { index: number }) {
   const value = useContext(TimelineContextState);
   const SinglePost = value.timelineStateData.data[index];
 
   return (
-    <Link to={`/post/${SinglePost.post_id}`}>
-      <div className="post-container-card" id={SinglePost.post_id}>
-        <HeadTbl data={SinglePost} />
-        <TitleTbl data={SinglePost} />
-        <RecipeTbl data={SinglePost} />
-        <ContentTbl data={SinglePost} />
-        <FooterTbl data={SinglePost} />
-      </div>
-    </Link>
+    // <Link to={`/post/${SinglePost.post_id}`}>
+    <div className="post-container-card" id={SinglePost.post_id} key={index}>
+      <HeadTbl data={SinglePost} />
+      <TitleTbl data={SinglePost} />
+      <RecipeTbl data={SinglePost} />
+      <ContentTbl data={SinglePost} />
+      <FooterTbl data={SinglePost} />
+    </div>
+    // </Link>
   );
 }
 
 function ClickableProfileImage({ data }) {
-  const style = `http://localhost:8081/src/img/profile/users/${data.user_id}.png`;
+  const avatarURL = `${IMAGE_HOST}${data.user_id}.png`;
   return (
     <Link
       className="cell"
       to={`/profile/${data.user_id}`}
       data-testid="image-lnk"
     >
-      <img className="card-view-profile-pic cell" src={style} />
+      <img className="card-view-profile-pic cell" src={avatarURL} />
     </Link>
   );
 }

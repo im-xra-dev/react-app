@@ -1,24 +1,31 @@
 /** API_JSON_QUERY
  *
  * Queries the CHOMP API
- * This method is not to be fully implemented in this branch
+ * TODO This method is not to be fully implemented in this branch
  *
  * @param route
  * @param body
+ * @param mock
  * @constructor
  */
-import { TimelineState } from "../../components/PostList/types";
+export async function API_JSON_QUERY(
+  route: string,
+  body: ANY_OBJ,
+  mock: { _: API_RESPONSE },
+): Promise<API_RESPONSE> {
+  if (mock) return mock._;
 
-export async function API_JSON_QUERY(route, body) {
   //TODO from env
-  const API_ROOT = "http://localhost:8081/API";
+  const API_ROOT = 'http://localhost:8081/API';
   const requestOptions = {
-    method: "POST",
-    // headers: { 'Content-Type': 'application/jzson' },
-    body: JSON.stringify(body)
+    method: 'POST',
+    // headers: { },
+    body: JSON.stringify(body),
   };
 
   //TODO handle auth too
+
+  //TODO handle mock data for testing
 
   try {
     const response = await fetch(`${API_ROOT}/${route}`, requestOptions);
