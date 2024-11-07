@@ -1,13 +1,13 @@
 import * as React from 'react';
-import ProfilePage from './pages/profile';
-import Header from './components/header';
-import ContentFull from './components/content-full';
+import ProfilePage from './pages/ProfilePage';
+import Header from './components/Header';
+import ContentFull from './components/ContentFull';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import { ViewPost } from './pages/view_post/ViewPost';
-import { ContentPart } from './components/content-part/ContentPart';
+import { ViewPost } from './pages/ViewPostPage/ViewPost';
+import { ContentPart } from './components/ContentPart/ContentPart';
 import { PostList } from './components/PostList/PostList';
-import { SubsectionPage } from './pages/s/s';
-import { SearchPage } from './pages/search/search';
+import { SubsectionPage } from './pages/SubsectionPage/SubsectionPage';
+import { SearchPage } from './pages/SearchPage/SearchPage';
 
 function App() {
   return (
@@ -31,8 +31,8 @@ function App() {
             <Route path="/login" />
             <Route path="/signup" />
             <Route path="post/">
-              <Route index element={<ProfilePage />} />
-              <Route path=":postid/comment/" element={<ProfilePage />} />
+              <Route index />
+              <Route path=":postid/comment/" />
             </Route>
           </Route>
         </Routes>

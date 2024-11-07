@@ -1,5 +1,5 @@
 import * as React from 'react';
-// import "./profile.css";
+// import "./ProfilePage.css";
 import { useParams } from 'react-router-dom';
 import PostList from '../../components/PostList';
 import '../../assets/css/ContentHeader.css';
@@ -11,7 +11,7 @@ export function SearchPage() {
 
   return (
     <>
-      {/*<div id="content-header" className="content-table">*/}
+      {/*<div id="content-Header" className="content-table">*/}
 
       <div id="s-posts">
         <div id="users-posts-header">{`Search page not setup`}</div>

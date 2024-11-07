@@ -9,6 +9,6 @@ test('not written', () => {
 
 /**TODO: setup API calls
  * Test data displayed in page
- * refactor out header and also check header values
+ * refactor out Header and also check Header values
  * check post list
  */

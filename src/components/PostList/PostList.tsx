@@ -1,19 +1,8 @@
 import * as React from 'react';
 import './PostList.css';
-import {
-  useEffect,
-  useState,
-  createContext,
-  SetStateAction,
-  Dispatch,
-} from 'react';
+import { useEffect, useState, createContext } from 'react';
 import { PostCard } from './PostCard/PostCard';
-import {
-  PostDataList,
-  PostListViews,
-  PostListProps,
-  TimelineState,
-} from './types';
+import { PostDataList, PostListViews, PostListProps } from './types';
 import {
   newTimelineState,
   queryTimelineObject,
@@ -23,13 +12,20 @@ import {
 export const TimelineContextState = createContext(null);
 export type Props = { id: PostListViews; options?: PostListProps };
 
+/** PostList
+ *
+ * PostList creates a timeline context and renders that context as a list of forum Posts
+ * It interfaces with the TimelineHook to query chunks of posts on init and as the user scrolls
+ *
+ * @param props
+ * @constructor
+ */
 export function PostList(props: Props) {
-  //initialize contexts
+  //initialize contexts TimelineState and string
   const [message, setMessage] = useState('loading...');
-  const [timelineStateData, setTimelineStateData]: [
-    TimelineState,
-    Dispatch<SetStateAction<TimelineState>>,
-  ] = useState(newTimelineState(props.id, props.options));
+  const [timelineStateData, setTimelineStateData] = useState(
+    newTimelineState(props.id, props.options),
+  );
 
   //create a scoped scroll handler
   const scopedScrollHandler = () => {
