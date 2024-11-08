@@ -1,7 +1,7 @@
 html body {
   width: calc(100% - 10px);
   height: 100%;
-  background: #262626;
+  background: #00000c;
   color: #bdbdbd;
   font-family: Cambria;
   overflow-x: hidden;
@@ -28,6 +28,11 @@ a:hover {
   text-decoration-color: #9e9e9e;
 }
 
+Link:hover {
+  text-decoration: none;
+  text-underline: rgba(0, 0, 0, 0);
+}
+
 #main-content-full {
   height: auto;
   min-height: 100%;
@@ -39,7 +44,7 @@ a:hover {
 }
 
 .main-content {
-  background: #131313;
+  background: #000001;
   width: 80%;
   max-width: 1024px;
   position: absolute;
@@ -71,28 +76,28 @@ a:hover {
 
 .left {
   display: inline-flex;
-  width: 33%;
+  width: 25%;
   height: 50px;
   /*background: red;*/
 }
 
 .center {
   display: inline-flex;
-  width: 34%;
+  width: 50%;
   height: 50px;
   /*background: green;*/
 }
 
 .right {
   display: inline-flex;
-  width: 33%;
+  width: 25%;
   height: 50px;
   /*background: blue;*/
 }
 
 .logo {
-  background: #5c353c;
-  /*url("/src/img/logo.png");*/
+  /*background: #5c353c;*/
+  background-image: url('../../../public/logo192.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -172,7 +177,7 @@ a:hover {
 }
 
 #profile-settings {
-  width: 33%;
+  width: 25%;
   height: 50px;
   top: 0;
   position: absolute;
@@ -259,7 +264,7 @@ a:hover {
 }
 
 #site-search {
-  width: calc(33% - 30px);
+  width: 25%;
   height: 29px;
   font-size: 18px;
   border: none;

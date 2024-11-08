@@ -1,0 +1,240 @@
+.post-container-card {
+  width: calc(100% - 40px);
+  height: auto;
+  /*max-height: 250px;*/
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #00035b;
+  transition-duration: 0.25s;
+}
+
+.post-container-card:hover {
+  background-color: rgba(255, 255, 255, 0.11);
+}
+
+.ddmu {
+  width: 25px;
+  text-align: center;
+}
+.ddmu-icon {
+  width: 10px;
+  height: 10px;
+  margin-left: 15px;
+
+  transition-duration: 750ms;
+  border-bottom: 1px solid gray;
+  border-left: 1px solid gray;
+  transform: rotate(-45deg) skew(10deg, 10deg);
+}
+.ddmu-icon-open {
+  transform: rotate(-45deg) skew(10deg, 10deg) scale(-1);
+}
+
+.ddmu-display {
+  width: 38px;
+  height: auto;
+  position: absolute;
+  margin-left: 0px;
+
+  transition-duration: 500ms;
+  border-radius: 4px;
+
+  opacity: 0;
+  background-color: lightgray;
+}
+
+.ddmu-elm {
+  height: 15px;
+  border-bottom: 1px solid black;
+  font-size: 8pt;
+}
+
+.ddmu-display-show {
+  opacity: 1;
+}
+
+.card-view-profile-pic {
+  width: 76px;
+  height: 76px;
+  border: 1px solid black;
+  border-radius: 50px;
+  background: blue;
+  background-position: -41px -15px;
+  background-repeat: no-repeat;
+  background-size: 214%;
+}
+
+.card-view-username {
+  font-size: 14pt;
+  width: 200px;
+  line-height: 20pt;
+  padding: 3px 5px 2px;
+}
+.card-view-timestamp {
+  font-size: 8pt;
+  width: 200px;
+  line-height: 10pt;
+  padding-left: 5px;
+  color: grey;
+}
+.card-view-section {
+  font-size: 8pt;
+  width: 200px;
+  line-height: 20pt;
+  padding-left: 5px;
+}
+
+.card-view-title {
+  font-size: 18pt;
+  width: calc(100% - 50px);
+  padding: 10px 15px 5px;
+  line-height: 18pt;
+}
+
+.card-view-content {
+  display: block;
+  font-size: 12pt;
+  height: auto;
+  max-height: 130px;
+  overflow: hidden;
+  /*width: calc(100% - 50px);*/
+  padding: 10px 10px 5px;
+  line-height: 14pt;
+}
+.card-view-content.full {
+  max-height: unset;
+}
+
+.card-view-image {
+}
+
+.comment-icon {
+  /*background: url('/src/img/comments.png');*/
+  background-size: contain;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  margin-left: -15px;
+  margin-top: 9px;
+}
+
+.card-view-pinned {
+  /*background: url("/src/img/pinned.png");*/
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  left: calc(100% - 25px);
+}
+
+.vote-cell {
+  width: auto;
+  min-width: 20px;
+  height: 20px;
+}
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  /*border-width: 3px;*/
+  display: inline-block;
+  padding: 3px;
+  margin: auto;
+}
+
+.gui.up {
+  opacity: 0.22;
+  border-color: rgb(0, 196, 255);
+  transform: rotate(-135deg) translate(-5px, 4px);
+  -webkit-transform: rotate(-135deg) translate(-5px, 4px);
+}
+
+.txt {
+  color: rgb(155, 155, 155);
+  text-align: center;
+  font-size: 12px;
+  line-height: 25px;
+  margin: 5px 0 5px;
+}
+
+.gui.down {
+  opacity: 0.1;
+  border-color: rgb(255, 0, 0);
+  transform: rotate(45deg) translate(5px, -4px);
+  -webkit-transform: rotate(45deg) translate(5px, -4px);
+}
+
+.arrow.active {
+  opacity: 0.9;
+}
+
+.vote-cell.comms {
+  padding-left: 25px;
+  /*background: rgba(155,155,155,0.1);*/
+}
+
+#comments {
+  width: 100%;
+  height: fit-content;
+}
+
+.user-comment {
+  display: flex;
+}
+
+.comment-container {
+  width: calc(100% - 30px);
+  min-height: 50px;
+  height: fit-content;
+  border-bottom: 1px dashed rgba(179, 179, 179, 0.66);
+  margin-top: 15px;
+  margin-left: 15px;
+}
+
+.comment-profile-pic {
+  width: 30px;
+  height: 30px;
+  border: 1px solid black;
+  border-radius: 50px;
+  background: blue;
+  background-position: -20px -12px;
+  background-repeat: no-repeat;
+  background-size: 240%;
+}
+.comment-datetime {
+  font-size: 6pt;
+  width: 100px;
+  line-height: 8pt;
+  padding-left: 5px;
+  color: grey;
+}
+
+.comment-username {
+  font-size: 10pt;
+  width: 100px;
+  line-height: 14pt;
+  padding-left: 5px;
+}
+.comment-content {
+  font-size: 15px;
+  line-height: 16px;
+  margin-left: 5px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  word-break: break-word;
+}
+
+.recipe-icon-img {
+  width: 256px;
+  height: 256px;
+  border-image-repeat: stretch;
+}
+
+.recipe-icon {
+  padding: 15px;
+}
+
+.card-view-recipe-info {
+  text-align: center;
+  font-size: 10pt;
+}

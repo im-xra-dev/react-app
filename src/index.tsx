@@ -3,7 +3,6 @@ import * as ReactDOM from 'react-dom/client';
 import './assets/css/index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, MemoryRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />);
